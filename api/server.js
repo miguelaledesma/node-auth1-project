@@ -22,7 +22,7 @@ const server = express();
 server.use(helmet());
 server.use(express.json());
 server.use(cors());
-
+// why does this need to come after the stuff above? 
 server.use('/api/users', userRouter); 
 server.use('/api/auth', authRouter)
 
