@@ -24,6 +24,9 @@ const router = require('express').Router()
     "message": "Password must be longer than 3 chars"
   }
  */
+  router.post('/register', (req, res, next) => {
+    res.json('register')
+  })
 
 
 /**
@@ -42,6 +45,10 @@ const router = require('express').Router()
   }
  */
 
+  router.post('/login', (req, res, next) => {
+    res.json('login')
+  })
+
 
 /**
   3 [GET] /api/auth/logout
@@ -58,14 +65,7 @@ const router = require('express').Router()
     "message": "no session"
   }
  */
-  router.post('/register', (req, res, next) => {
-    res.json('register')
-  })
-
-  router.post('/login', (req, res, next) => {
-    res.json('login')
-  })
-
+  
   router.get('/logout', (req, res, next) => {
     res.json('logout')
   })
