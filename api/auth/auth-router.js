@@ -59,8 +59,14 @@ const {
   }
  */
 
-  router.post('/login', (req, res, next) => {
-    res.json('login')
+  router.post('/login', checkUsernameExists, async (req, res, next) => {
+    const {password} = req.body; 
+    if(bcrypt.compareSync(password, req.user.password)){
+      res.status(200).json({message: "Welcome sue!"})
+    }else {
+      next({status: 401, message: "Invalid credentials" })
+    }
+    
   })
 
 
